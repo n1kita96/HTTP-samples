@@ -13,13 +13,11 @@ public class SimpleExecutorService {
     private final ThreadGroup group = new ThreadGroup("");
     private final Collection<Thread> workersPool = new ArrayList<>();
     private final BlockingQueue<Callable> taskQueue;
-    //todo: read about private static nested classes
     private class Worker implements Runnable{
         @Override
         public void run() {
             while (true){
                 try {
-                    //todo: read about take/remove/poll/element/etc
                     Callable nextTask = taskQueue.take();
                     nextTask.call();
                 } catch (InterruptedException e) {
@@ -41,7 +39,6 @@ public class SimpleExecutorService {
     }
 
     public <T> void submit(Callable<T> task) throws InterruptedException{
-        //todo: sense of InterruptedException here? have to figure it out
         taskQueue.put(task);
     }
 
