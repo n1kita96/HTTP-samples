@@ -20,8 +20,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class Http_02 {
     public static void main(String[] args) throws IOException {
-        //TODO: read about ThreadPoolExecutor, ScheduleExecutorService, ForkJoinPool (work stealing)
-        //TODO: read about Blocking, submit returns Future()
 
         ExecutorService threadPool = new ThreadPoolExecutor(
                 4, 64,
